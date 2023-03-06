@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+canvas {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+/* #c, #e {
+  flex-basis: 50%;
+  width: 50%;
+} */
+#e {
+  flex-grow: 1;
+}
+.cm-editor { height: 100%; }
+.cm-scroller { overflow: auto; }
