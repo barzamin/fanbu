@@ -2,7 +2,8 @@ import './style.css';
 import { basicSetup } from 'codemirror';
 import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
-import { javascript } from '@codemirror/lang-javascript';
+import { javascript, scopeCompletionSource } from '@codemirror/lang-javascript';
+import { autocompletion } from '@codemirror/autocomplete';
 
 const CODE_DEBOUNCE_DT = 500;
 
@@ -37,6 +38,15 @@ const state = EditorState.create({
       }
     }),
     javascript(),
+    autocompletion({
+      override: [
+        scopeCompletionSource({
+          canvas,
+          context,
+          Math,
+        }),
+      ]
+    })
   ],
 });
 const editor = new EditorView({
